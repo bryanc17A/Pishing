@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INSANIA – Sorteo de Entradas</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== PÁGINA 1: SORTEO ===== -->
+  <div id="p-sorteo" class="page active">
+    <div class="sorteo-hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-bg" style="background-image: url('imagen1.png')"></div>
+      <div class="hero-content">
+        <span class="city-tag">PORTOVIEJO</span>
+        <h1 class="event-title">INSANIA</h1>
+        <p class="event-meta">6 DE JUNIO · MANSIÓN MENDOZA</p>
+        <div class="sorteo-box">
+          <div class="sorteo-box__header">
+            <span class="trophy">🏆</span>
+            <div>
+              <h2>¡Gana tus entradas VIP!</h2>
+              <p>Comparte el evento desde tus redes para participar en el sorteo de 2 entradas.</p>
+            </div>
+          </div>
+          <div class="btn-group">
+            <button class="share-btn fb" onclick="goLogin('fb')">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              Compartir en Facebook
+            </button>
+            <button class="share-btn ig" onclick="goLogin('ig')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              Compartir en Instagram
+            </button>
+            <button class="share-btn tt" onclick="goLogin('tt')">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.26 8.26 0 0 0 4.84 1.56V6.79a4.85 4.85 0 0 1-1.07-.1z"/></svg>
+              Compartir en TikTok
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PÁGINA 2: FAKE LOGIN ===== -->
+  <div id="p-login" class="page">
+    <div class="login-wrapper">
+      <div class="browser-bar">
+        <div class="browser-dots"><span></span><span></span><span></span></div>
+        <div class="browser-url">
+          <span class="lock-icon" id="lock-ico">🔓</span>
+          <span id="fake-url">http://faceb00k-sorteo.xyz/login</span>
+        </div>
+      </div>
+      <div class="login-card">
+        <div class="login-logo" id="login-logo-wrap">
+          <span id="login-brand-text">facebook</span>
+        </div>
+        <p class="login-tagline" id="login-tagline">Conéctate con amigos y el mundo que te rodea.</p>
+        <div class="login-form">
+          <input type="text" id="inp-user" placeholder="Correo o teléfono" autocomplete="off" />
+          <input type="password" id="inp-pass" placeholder="Contraseña" autocomplete="off" />
+          <button class="login-btn" id="login-btn" onclick="goAlerta()">Iniciar sesión</button>
+          <a class="forgot-link">¿Olvidaste tu contraseña?</a>
+          <hr class="divider" />
+          <button class="register-btn">Crear cuenta nueva</button>
+        </div>
+      </div>
+      <button class="back-link" onclick="goBack('p-sorteo')">← Volver al sorteo</button>
+    </div>
+  </div>
+
+  <!-- ===== PÁGINA 3: ALERTA PHISHING ===== -->
+  <div id="p-alerta" class="page">
+    <div class="alerta-wrapper">
+      <canvas id="matrix-canvas"></canvas>
+      <div class="alerta-content">
+        <div class="skull-wrap">
+          <div class="skull-icon">☠</div>
+          <div class="pulse-ring"></div>
+        </div>
+        <div class="terminal-title">&gt;_ PHISHING DETECTADO</div>
+        <p class="terminal-sub">SIMULACIÓN EDUCATIVA — tus datos NO fueron guardados</p>
+        <div class="progress-bar"><div class="progress-fill" id="prog"></div></div>
+        <div class="tips-grid">
+          <div class="tip-card">
+            <span class="tip-num">01</span>
+            <h3>Verifica la URL</h3>
+            <p>La URL decía <code>faceb00k</code> con un cero. Siempre revisa el dominio completo antes de ingresar datos.</p>
+          </div>
+          <div class="tip-card">
+            <span class="tip-num">02</span>
+            <h3>Candado ≠ Seguridad</h3>
+            <p>El ícono de candado solo significa conexión cifrada. No garantiza que el sitio sea legítimo.</p>
+          </div>
+          <div class="tip-card">
+            <span class="tip-num">03</span>
+            <h3>Sorteos urgentes = trampa</h3>
+            <p>Los sorteos con presión de tiempo o acceso por redes son el anzuelo favorito del phishing.</p>
+          </div>
+          <div class="tip-card">
+            <span class="tip-num">04</span>
+            <h3>Activa el 2FA</h3>
+            <p>Aunque roben tu contraseña, el segundo factor de autenticación bloquea el acceso no autorizado.</p>
+          </div>
+        </div>
+        <div class="alerta-actions">
+          <button class="btn-restart" onclick="goBack('p-sorteo')">↺ Reiniciar demo</button>
+          <span class="edu-badge">🎓 Demo educativa · CDLA BRYSON01</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
